@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+
+#create auction
+#http  --verbose --json POST 127.0.01:9000/startAuction Accept:application/json Content-Type:application/json auctionId=1 start=2016-10-20-16:25 end=2016-12-20-16:35 initialPrice:=2 prodId=3
+
+
+#place bid
+http --verbose --json POST http://127.0.0.1:9000/bid auctionId:=1 buyer=dave bidPrice:=6
+
+#get current winning bid
+http --verbose --json GET http://127.0.0.1:9000/winningBid/1
+
+#query for the bid history
+http --verbose --json http://127.0.0.1:9000/bidHistory/1
